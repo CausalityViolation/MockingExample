@@ -14,12 +14,12 @@ public class Calculator {
 
         } else {
 
-            String[] newText = text.split("[\n,]");
+            String[] newText = text.split("[\n,;/^*=]");
 
             sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
 
-
         }
+
         return sum;
     }
 

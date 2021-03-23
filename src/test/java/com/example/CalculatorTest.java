@@ -8,25 +8,33 @@ class CalculatorTest {
 
     Calculator calcTest = new Calculator();
 
+
+    @Test
+    void addTwoTest() {
+
+        assertEquals(2,calcTest.add("1,1"));
+
+    }
+
+    @Test
+    void addMoreDelimitersTest() {
+
+        assertEquals(2, calcTest.add("1\n1"));
+
+    }
+
+
     @Test
     void addTest() {
 
-        var actual = 3;
-
-        calcTest.add("1\n1,1");
-
-        assertEquals(3, actual);
+        assertEquals(8, calcTest.add("1\n1;1,1/1^1*1=1"));
 
     }
 
     @Test
     void addEmptyTest() {
 
-        var newString = "";
-
-        calcTest.add(newString);
-
-        assertEquals("",newString);
+        assertEquals(0 ,calcTest.add(""));
 
     }
 
