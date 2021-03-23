@@ -8,6 +8,7 @@ public class Calculator {
 
         int sum;
 
+
         if (text.isEmpty()) {
 
             sum = 0;
@@ -23,13 +24,24 @@ public class Calculator {
 
                 newText = textWithoutDelimiter.split(textSubstring);
 
-                sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
+                sum = Arrays.stream(newText)
+                        .map(Integer::parseInt)
+                        .mapToInt(each -> each).sum();
 
             } else {
 
                 String[] newText = text.split("[\n,;/^*=]");
 
-                sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
+                sum = Arrays.stream(newText)
+                        .map(Integer::parseInt)
+                        .peek(x -> {
+                                    if (x < 0) {
+                                        throw new RuntimeException();
+                                    }
+                                }
+                        )
+                        .mapToInt(each -> each)
+                        .sum();
 
             }
         }

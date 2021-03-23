@@ -12,7 +12,7 @@ class CalculatorTest {
     @Test
     void addTwoTest() {
 
-        assertEquals(2,calcTest.add("1,1"));
+        assertEquals(2, calcTest.add("1,1"));
 
     }
 
@@ -34,14 +34,21 @@ class CalculatorTest {
     @Test
     void addEmptyTest() {
 
-        assertEquals(0 ,calcTest.add(""));
+        assertEquals(0, calcTest.add(""));
 
     }
 
     @Test
     void addDifferentDelimiters() {
 
-        assertEquals(4,calcTest.add("//;\n1;2;1"));
+        assertEquals(4, calcTest.add("//;\n1;2;1"));
+
+    }
+
+    @Test
+    void negativesTest() {
+
+        assertThrows(RuntimeException.class, () -> calcTest.add("-1,-1"));
 
     }
 
