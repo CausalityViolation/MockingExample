@@ -11,11 +11,11 @@ class CalculatorTest {
     @Test
     void addTest() {
 
-        var actual = 2;
+        var actual = 3;
 
-        calcTest.add("1,1");
+        calcTest.add("1\n1,1");
 
-        assertEquals(2, actual);
+        assertEquals(3, actual);
 
     }
 
