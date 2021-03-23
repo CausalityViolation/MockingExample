@@ -1,7 +1,9 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class EmployeeManager {
@@ -29,33 +31,4 @@ public class EmployeeManager {
         return payments;
     }
 
-    public static int add(String... n1) {
-
-
-        //Koden nedan hanterar enbart 2 nummer
-        /*if (n1.isEmpty() && n2.isEmpty()) {
-            return 0;
-
-        } else if (n1.isEmpty()) {
-
-            return Integer.parseInt(n2);
-        } else if (n2.isEmpty()) {
-
-            return Integer.parseInt(n1);
-        }
-
-        return Integer.parseInt(n1) + Integer.parseInt(n2);
-    }
-
-     */
-
-        //Lambda för att addera obegränsat antal nummer
-        long longValue = Arrays.stream(n1)
-                .filter(x -> !x.isEmpty())
-                .map(Integer::parseInt)
-                .collect(Collectors.summarizingInt(Integer :: intValue)).getSum();
-
-        return (int) longValue;
-
-    }
 }
