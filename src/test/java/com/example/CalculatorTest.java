@@ -52,5 +52,12 @@ class CalculatorTest {
 
     }
 
+    @Test
+    void ignoreBIGNumbers() {
+
+        assertEquals(1,calcTest.add("1001,1"));
+
+    }
+
 
 }

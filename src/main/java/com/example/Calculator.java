@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Calculator {
 
@@ -36,6 +37,7 @@ public class Calculator {
                 sum = Arrays.stream(newText)
                         .map(Integer::parseInt)
                         .peek(throwException)
+                        .filter(overOneThousand)
                         .mapToInt(each -> each)
                         .sum();
 
@@ -52,4 +54,6 @@ public class Calculator {
 
 
     };
+
+    Predicate<Integer> overOneThousand = x -> x < 1001;
 }
