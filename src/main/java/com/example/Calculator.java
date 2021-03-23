@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 public class Calculator {
 
@@ -34,12 +35,7 @@ public class Calculator {
 
                 sum = Arrays.stream(newText)
                         .map(Integer::parseInt)
-                        .peek(x -> {
-                                    if (x < 0) {
-                                        throw new RuntimeException();
-                                    }
-                                }
-                        )
+                        .peek(throwException)
                         .mapToInt(each -> each)
                         .sum();
 
@@ -49,5 +45,11 @@ public class Calculator {
         return sum;
     }
 
+    Consumer<Integer> throwException = x -> {
+        if (x < 0) {
+            throw new RuntimeException();
+        }
 
+
+    };
 }
