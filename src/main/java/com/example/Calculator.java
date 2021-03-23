@@ -14,10 +14,24 @@ public class Calculator {
 
         } else {
 
-            String[] newText = text.split("[\n,;/^*=]");
+            if (text.startsWith("//")) {
 
-            sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
+                String[] newText;
 
+                var textSubstring = text.substring(2, 3);
+                var textWithoutDelimiter = text.substring(4);
+
+                newText = textWithoutDelimiter.split(textSubstring);
+
+                sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
+
+            } else {
+
+                String[] newText = text.split("[\n,;/^*=]");
+
+                sum = Arrays.stream(newText).map(Integer::parseInt).mapToInt(each -> each).sum();
+
+            }
         }
 
         return sum;

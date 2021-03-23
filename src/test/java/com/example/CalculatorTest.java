@@ -38,5 +38,12 @@ class CalculatorTest {
 
     }
 
+    @Test
+    void addDifferentDelimiters() {
+
+        assertEquals(4,calcTest.add("//;\n1;2;1"));
+
+    }
+
 
 }
