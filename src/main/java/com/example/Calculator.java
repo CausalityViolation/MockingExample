@@ -21,7 +21,7 @@ public class Calculator {
 
             if (text.startsWith("//")) {
 
-                 sum = Pattern.compile("[^-?0-9]+")
+                sum = Pattern.compile("[^-?0-9]+")
                         .splitAsStream(text).filter(s -> !s.isEmpty())
                         .mapToInt(Integer::parseInt)
                         .sum();
