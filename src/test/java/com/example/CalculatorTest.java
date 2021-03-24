@@ -53,11 +53,31 @@ class CalculatorTest {
     }
 
     @Test
-    void ignoreBIGNumbers() {
+    void ignoreBIGNumbersTest() {
 
         assertEquals(1,calcTest.add("1001,1"));
 
     }
+
+    @Test
+    void anyLengthDelimiterTest() {
+
+        assertEquals(3, calcTest.add("//[**]\n1**1**1"));
+    }
+
+    @Test
+    void multipleDelimitersTest(){
+
+        assertEquals(6,calcTest.add("//[*][%]\n1*2%3)"));
+
+    }
+
+    @Test
+    void multipleDelimitersLongerThanOneChar(){
+
+        assertEquals(3,calcTest.add("//[**][%%]\n1**1%%1)"));
+    }
+
 
 
 }

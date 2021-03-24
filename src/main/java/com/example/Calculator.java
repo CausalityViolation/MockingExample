@@ -1,8 +1,10 @@
 package com.example;
 
 import java.util.Arrays;
+
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 
 public class Calculator {
 
@@ -19,16 +21,11 @@ public class Calculator {
 
             if (text.startsWith("//")) {
 
-                String[] newText;
+                 sum = Pattern.compile("[^-?0-9]+")
+                        .splitAsStream(text).filter(s -> !s.isEmpty())
+                        .mapToInt(Integer::parseInt)
+                        .sum();
 
-                var textSubstring = text.substring(2, 3);
-                var textWithoutDelimiter = text.substring(4);
-
-                newText = textWithoutDelimiter.split(textSubstring);
-
-                sum = Arrays.stream(newText)
-                        .map(Integer::parseInt)
-                        .mapToInt(each -> each).sum();
 
             } else {
 
@@ -56,4 +53,6 @@ public class Calculator {
     };
 
     Predicate<Integer> overOneThousand = x -> x < 1001;
+
+
 }
