@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocalEmployeeRepo implements EmployeeRepository {
-    ArrayList<Employee> EmpRepo = new ArrayList<>();
+    List<Employee> EmpRepo = new ArrayList<>();
 
     LocalEmployeeRepo() {
     }
 
-    LocalEmployeeRepo(ArrayList<Employee> repo) {
+    LocalEmployeeRepo(List<Employee> repo) {
         EmpRepo = repo;
     }
 
