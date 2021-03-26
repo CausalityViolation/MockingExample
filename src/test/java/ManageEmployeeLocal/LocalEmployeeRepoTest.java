@@ -52,7 +52,7 @@ class LocalEmployeeRepoTest {
 
         LocalEmployeeRepo testList = new LocalEmployeeRepo(List.of(e1, e2));
         var listOfEmp = testList.findAll();
-        assertEquals(3, listOfEmp.size());
+        assertEquals(2, listOfEmp.size());
 
         assertTrue(testList.findAll().contains(e1));
         assertTrue(testList.findAll().contains(e2));
