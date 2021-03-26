@@ -48,7 +48,7 @@ class CalculatorTest {
     @Test
     void negativesTest() {
 
-        assertThrows(RuntimeException.class, () -> calcTest.add("-1,-1"));
+        assertThrows(IllegalArgumentException.class, () -> calcTest.add("-1,-1"));
 
     }
 

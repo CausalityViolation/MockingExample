@@ -46,7 +46,7 @@ public class Calculator {
 
     Consumer<Integer> throwException = x -> {
         if (x < 0) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException();
         }
 
 
